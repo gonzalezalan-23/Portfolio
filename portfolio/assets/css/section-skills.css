@@ -1,0 +1,132 @@
+.skills-container {
+    max-width: 100vw;
+    width: 95%;
+    text-align: center;
+    margin-left: 2.5%;
+    min-height: calc(100vh - 6rem);
+    padding-top: 4rem;
+}
+
+.yellow-text {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.skills-header p {
+    font-size: 0.9rem;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    line-height: 1.5;
+}
+
+.skills-content {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+/* Texto vertical "Skills" */
+.vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    border-right: 4px solid var(--primary);
+    padding-left: 10px;
+    margin-right: 30px;
+    height: 100px;
+}
+
+.skills-content {
+    display: flex;
+    gap: 40px; /* Espacio constante entre el texto vertical y el grid */
+    align-items: stretch; /* Para que la línea amarilla cubra toda la altura si quieres */
+}
+
+.vertical-text {
+    height: auto; /* Que se adapte al contenido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Grid de Tarjetas */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    flex-grow: 1;
+}
+
+.skill-card {
+    background-color: #0d0d0d;
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    transition: transform 0.1s;
+    border: var(--primary);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    background-color: #c98200;
+}
+
+.skill-card:hover span{
+    color: white;
+}
+
+.skill-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.skill-card span {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #ffb42a;
+}
+
+.invert { filter: invert(1); }
+
+/* Estado inicial: invisible y un poco más abajo */
+.skill-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.2s ease-out;
+}
+
+/* Estado cuando la tarjeta entra en pantalla */
+.skill-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retraso progresivo para que no salgan todas a la vez (Efecto Cascada) */
+.skill-card:nth-child(1) { transition-delay: 0.1s; }
+.skill-card:nth-child(2) { transition-delay: 0.2s; }
+.skill-card:nth-child(3) { transition-delay: 0.3s; }
+.skill-card:nth-child(4) { transition-delay: 0.4s; }
+.skill-card:nth-child(5) { transition-delay: 0.5s; }
+.skill-card:nth-child(6) { transition-delay: 0.5s; }
+.skill-card:nth-child(7) { transition-delay: 0.5s; }
+
+.skill-card:hover {
+    transform: translateY(-10px) scale(1.05); /* Se eleva y crece un poco */
+    box-shadow: 0 15px 30px rgba(241, 196, 15, 0.2); /* Sombra con el color amarillo */
+    border: 1px solid var(--primary); /* Un borde sutil que aparece */
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .vertical-text, .scroll-indicator { display: none; }
+}
+

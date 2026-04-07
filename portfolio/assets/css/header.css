@@ -1,0 +1,67 @@
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Para que siempre esté por encima de las imágenes */
+    background: rgba(18, 13, 11, 0.9); /* Tu --bg-dark con transparencia */
+    backdrop-filter: blur(8px); 
+    margin-bottom: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 3% 0.5rem 3%;
+}
+
+.logo { color: var(--primary); font-weight: bold; font-size: 1.8rem; }
+
+nav ul { display: flex; list-style: none; gap: 20px; }
+
+nav ul a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 1.1rem;
+    position: relative; /* Necesario para posicionar la línea */
+    padding-bottom: 5px; /* Espacio para que la línea no pegue al texto */
+}
+nav ul a:hover{
+    color: var(--primary);
+}
+nav ul a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0; /* Empieza sin ancho */
+    height: 2px; /* Grosor de la línea */
+    background-color: var(--primary);
+    transition: width 0.3s ease; /* Aquí ocurre la magia */
+}
+
+nav ul a:hover::after {
+    width: 100%; /* Se expande al 100% al pasar el mouse */
+}
+
+.btn-talk {
+    background: var(--primary);
+    color: var(--bg-dark);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 rgba(255, 138, 0, 0); /* Invisible al inicio */
+}
+
+.btn-talk a{
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 1.1rem;
+}
+
+.btn-talk:hover {
+    transform: translateY(-2px); /* Sube un poquito */
+    box-shadow: 0 5px 10px rgba(255, 138, 0, 0.4); /* Brillo del color primary */
+}

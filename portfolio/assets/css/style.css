@@ -1,0 +1,24 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+:root {
+    --primary: #ff8a00;
+    --bg-dark: #120d0b;
+    --text-white: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top right, #44220d, #120d0b 60%);
+    color: var(--text-white);
+    min-height: 100vh;
+    text-align: center;
+    background-attachment: fixed;
+}
+
+a{
+    text-decoration: none;
+}

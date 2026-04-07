@@ -1,0 +1,126 @@
+.resume-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+/* Contenedor de la línea */
+.timeline {
+    position: relative;
+    border-left: 2px solid #333; /* La línea vertical */
+    margin-left: 20px;
+    padding-left: 40px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+/* El círculo amarillo */
+.timeline-dot {
+    position: absolute;
+    left: -57px; /* Ajuste para centrar sobre la línea */
+    background-color: #ffb400;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 0 10px rgba(255, 180, 0, 0.3);
+}
+
+.date-badge {
+    background-color: #252525;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #bbb;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.timeline-content h3 {
+    margin: 5px 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.timeline-content h3 span {
+    color: #bbb;
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+.timeline-content p {
+    color: #888;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.timeline {
+    position: relative;
+    margin-left: 20px;
+    padding-left: 40px;
+}
+
+/* 1. Línea gris de fondo (Capa 1) */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: #333;
+    z-index: 1; /* Nivel más bajo */
+}
+
+/* 2. Línea amarilla animada (Capa 2) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0%;
+    background: #ffb400;
+    transition: height 2s ease-in-out;
+    z-index: 2; /* Por encima de la gris, pero debajo de los puntos */
+}
+
+.timeline.animate-line::after {
+    height: 100%;
+}
+
+/* 3. Los puntos/iconos (Capa 3) */
+.timeline-dot {
+    position: absolute;
+    left: -17px; /* Centrado exacto sobre la línea de 2px */
+    background-color: #ffb400; /* Fondo sólido para tapar la línea */
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3; /* Nivel más alto: SIEMPRE por encima */
+    
+    /* Estado inicial para la animación */
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.timeline-dot.show {
+    opacity: 1;
+    transform: scale(1);
+}

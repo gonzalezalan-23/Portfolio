@@ -1,0 +1,129 @@
+.about-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Título con el texto "RESUME" transparente detrás */
+.section-title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 7rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05);
+    letter-spacing: 10px;
+    margin: 0;
+}
+
+.main-text {
+    position: relative;
+    font-size: 3.5rem;
+    font-weight: 800;
+    z-index: 1;
+}
+
+.main-text span { color: #ffb400; }
+
+/* Contenedor Principal */
+.about-container {
+    display: flex;
+    gap: 50px;
+    
+}
+
+/* Columna de Info Personal */
+.personal-infos { flex: 1; }
+
+.personal-infos h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.info-list {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    width: 100%;
+}
+
+.info-list p {
+    color: #ccc;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.info-list span {
+    color: #fff;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+
+
+.info-description p {
+    color: #bbb;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-top: 20px;
+    border-left: 3px solid var(--primary); /* Una línea de acento al costado */
+    padding-left: 15px;
+}
+/* Cuadrícula de Stats */
+.stats-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+
+
+.stat-card {
+    border: 1px solid #333;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.stat-card .number {
+    font-size: 3rem;
+    color: #ffb400;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.stat-card .label {
+    font-size: 0.8rem;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-card .line {
+    width: 25px;
+    height: 1px;
+    background-color: #555;
+}
+
+.stat-card {
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.stat-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .about-container { flex-direction: column; }
+    .bg-text { font-size: 4rem; }
+}

@@ -1,0 +1,117 @@
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    min-height: calc(100vh - 5.8rem);
+}
+
+.content { max-width: 500px; }
+
+h1 { font-size: 3.5rem; margin-bottom: 0.5rem; }
+
+h1 span { color: var(--primary); }
+
+.subtitle { font-weight: bold; color: #ddd; margin-bottom: 20px; font-size: 1.8rem;}
+
+.description { color: #999; line-height: 1.6; margin-bottom: 30px; font-size: 1.4rem;}
+
+/* Botones */
+.actions { display: flex; margin-bottom: 40px; width: 100%; justify-content: space-around; gap: 10px;}
+
+.btn-primary {
+    background: var(--primary);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid #444;
+    padding: 15px 30px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #e67e00; /* Un tono más oscuro que tu primary */
+    transform: translateY(-2px);
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary);
+    color: white;
+    transition: 0.3s;
+    background-color: #e67e00;
+}
+
+.stats div {
+    border-left: 2px solid #333; /* Una línea divisoria sutil */
+    padding-left: 15px;
+}
+
+
+/* Stats */
+.stats { display: flex;; width: 100%; justify-content: space-around;}
+
+.stats strong { display: block; font-size: 1.5rem; color: var(--primary); }
+
+.stats p { color: #777; font-size: 0.8rem; margin: 0; }
+
+/* Imagen con forma fluida (Blob) */
+.image-container { position: relative; }
+
+@keyframes morph {
+    0% { border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%; }
+    50% { border-radius: 60% 40% 40% 60% / 40% 60% 30% 70%; }
+    100% { border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%; }
+}
+
+.blob-shape {
+    background: var(--primary);
+    width: 450px;
+    height: 480px;
+    border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    animation: morph 10s ease-in-out infinite;
+    background: linear-gradient(45deg, var(--primary), #ffb347); /* Degradado para más profundidad */
+}
+
+.blob-shape img {
+    object-fit: cover;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse; /* La imagen arriba o abajo según prefieras */
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+
+    .stats {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .blob-shape {
+        width: 300px;
+        height: 320px;
+        margin-bottom: 30px;
+    }
+
+    h1 { font-size: 2.5rem; }
+}
